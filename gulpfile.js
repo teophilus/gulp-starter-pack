@@ -27,7 +27,6 @@ gulp.task('hint', function() {
 });
 
 /* 'watch' watches for file changes and executes respective tasks */
-
 gulp.task('watch', function() {
 	gulp.watch('app/styles/less/*.less', ['less']);
 	gulp.watch('app/scripts/*.js', ['hint'])
@@ -37,7 +36,6 @@ gulp.task('watch', function() {
 
 /* 'usemin' looks at 'html' files for the doc blocks to concatenate css & js,
 uglify js, adds hashes to js & css to bypass caches */ 
-
 gulp.task('usemin', function () {
 	gulp.src('app/*.html')
 		.pipe(usemin({
