@@ -20,15 +20,15 @@ gulp.task('less', function() {
 	gulp.src(config.paths.lessFiles)
 		.pipe(sourcemaps.init())
 		.pipe(less())
-		.pipe(sourcemaps.write('sourcemaps'))
+		.pipe(sourcemaps.write(config.paths.sourcemapOutput))
 		.pipe(gulp.dest(config.paths.stylesOutput))
 });
 
 /* 'sass' compiles .scss .scss to .css and generates sourcemaps  */
-gulp.task('sass', function () {
+gulp.task('sass', function() {
 	gulp.src(config.paths.scssFiles)
 		.pipe(sass())
-		.pipe(sourcemaps.write('sourcemaps'))
+		.pipe(sourcemaps.write(config.paths.sourcemapOutput))
 		.pipe(gulp.dest(config.paths.stylesOutput))
 });
 
@@ -49,7 +49,7 @@ gulp.task('watch', function() {
 
 /* 'usemin' looks at 'html' files for the doc blocks to concatenate css & js,
 uglify js, adds hashes to js & css to bypass caches */ 
-gulp.task('usemin', function () {
+gulp.task('usemin', function() {
 	gulp.src('app/*.html')
 		.pipe(usemin({
 			css: [minifyCss(), 'concat', rev()],

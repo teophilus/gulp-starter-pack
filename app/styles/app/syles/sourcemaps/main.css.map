@@ -1,1 +1,0 @@
-{"version":3,"sources":["/Users/teonprudent/Sites/realtime-gulp-demo/app/styles/less/main.less"],"names":[],"mappings":"AAEA;EACC,WAAA","file":"main.css","sourcesContent":["@main-color: gray;\n\nh1 {\n\tcolor: @main-color;\n}\n\np {\n\t\n}"],"sourceRoot":"/source/"}
