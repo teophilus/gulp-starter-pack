@@ -11,49 +11,38 @@ var gulp       = require('gulp'),
 
 /* Paths */
 
-// var paths = {
-// 	lessFiles: 'app/styles/less/*.less',
-// 	scssFiles: 'app/styles/scss/*.scss',
-// 	jsFiles: 'app/scripts/*.js',
-// 	scriptsOutput: 'app/scripts',
-// 	stylesOutput: 'app/styles',
-// 	distFolder: 'dist/'
-// };
-
 var config = require('./gulp-config.json');
-// var config = JSON.parse('./gulp-config.json', 'utf8');
-
 
 /* Development Tasks */
 
 /* 'less' compiles .less to .css and generates sourcemaps  */
 gulp.task('less', function() {
-	gulp.src(paths.lessFiles)
+	gulp.src(config.paths.lessFiles)
 		.pipe(sourcemaps.init())
 		.pipe(less())
 		.pipe(sourcemaps.write('sourcemaps'))
-		.pipe(gulp.dest(paths.stylesOutput))
+		.pipe(gulp.dest(config.paths.stylesOutput))
 });
 
 /* 'sass' compiles .scss .scss to .css and generates sourcemaps  */
 gulp.task('sass', function () {
-	gulp.src(paths.scssFiles)
+	gulp.src(config.paths.scssFiles)
 		.pipe(sass())
 		.pipe(sourcemaps.write('sourcemaps'))
-		.pipe(gulp.dest(paths.stylesOutput))
+		.pipe(gulp.dest(config.paths.stylesOutput))
 });
 
 /* 'hint' warns via stdout js syntax errors */
 gulp.task('hint', function() {
-	gulp.src(paths.jsFiles)
+	gulp.src(config.paths.jsFiles)
 		.pipe(jshint())
 		.pipe(jshint.reporter('default', { verbose: true }));
 });
 
 /* 'watch' watches for file changes and executes respective tasks */
 gulp.task('watch', function() {
-	gulp.watch(paths.lessFiles, ['less']);
-	gulp.watch(paths.jsFiles, ['hint'])
+	gulp.watch(config.paths.lessFiles, ['less']);
+	gulp.watch(config.paths.jsFiles, ['hint'])
 });
 
 /* Deploy Tasks */
@@ -66,7 +55,7 @@ gulp.task('usemin', function () {
 			css: [minifyCss(), 'concat', rev()],
 			js: [uglify(), rev()]
 		}))
-		.pipe(gulp.dest(paths.distFolder));
+		.pipe(gulp.dest(config.paths.distFolder));
 });
 
 gulp.task('watcher', ['less', 'sass', 'hint', 'watch' ] );
