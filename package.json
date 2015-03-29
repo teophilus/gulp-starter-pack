@@ -1,5 +1,5 @@
 {
-  "name": "realtime-gulp-demo",
+  "name": "gulp-starter-pack",
   "version": "1.0.0",
   "description": "Demo of using gulp for day-to-day tasks and Deployment",
   "main": "gulpfile.js",
@@ -8,6 +8,7 @@
   },
   "author": "Teon Prudent",
   "license": "MIT",
+  "preinstall": "npm install -g bower",
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-jshint": "^1.9.4",
