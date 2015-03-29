@@ -11,14 +11,18 @@ var gulp       = require('gulp'),
 
 /* Paths */
 
-var paths = {
-	lessFiles: 'app/styles/less/*.less',
-	scssFiles: 'app/styles/scss/*.scss',
-	jsFiles: 'app/scripts/*.js',
-	scriptsOutput: 'app/scripts',
-	stylesOutput: 'app/styles',
-	distFolder: 'dist/'
-};
+// var paths = {
+// 	lessFiles: 'app/styles/less/*.less',
+// 	scssFiles: 'app/styles/scss/*.scss',
+// 	jsFiles: 'app/scripts/*.js',
+// 	scriptsOutput: 'app/scripts',
+// 	stylesOutput: 'app/styles',
+// 	distFolder: 'dist/'
+// };
+
+var config = require('./gulp-config.json');
+// var config = JSON.parse('./gulp-config.json', 'utf8');
+
 
 /* Development Tasks */
 
