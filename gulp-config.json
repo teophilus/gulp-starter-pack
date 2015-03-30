@@ -2,10 +2,13 @@
 	"paths": {
 		"lessFiles" : "app/styles/less/*.less",
 		"scssFiles": "app/styles/scss/*.scss",
+		"livescriptFiles": "app/scripts/livescript/*.ls",
+		"coffeeFiles": "app/scripts/coffee/*.coffee",
 		"jsFiles": "app/scripts/*.js",
 		"sourcemapOutput": "./../sourcemaps",
 		"scriptsOutput": "app/scripts",
 		"stylesOutput": "app/styles",
-		"distFolder": "dist/"
+		"distFolder": "dist/",
+		"distSourcemaps" : "sourcemaps/"
 	}
 }
