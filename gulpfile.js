@@ -61,8 +61,11 @@ gulp.task('hint', function() {
 
 // 'watch' watches for file changes and executes respective tasks 
 gulp.task('watch', function() {
-	gulp.watch(config.paths.lessFiles, ['less']);
-	gulp.watch(config.paths.jsFiles, ['hint'])
+	gulp.watch(config.paths.lessFiles, ['less'])
+	gulp.watch(config.paths.sassFiles, ['sass'])
+	gulp.watch(config.paths.livescriptFiles, ['ls'])
+	gulp.watch(config.paths.coffeeFiles, ['coffee'])
+	gulp.watch(config.paths.jsFiles, ['hint']);
 });
 
 // Deploy Tasks 
@@ -88,5 +91,5 @@ gulp.task('usemin', function() {
 		.pipe(gulp.dest(config.paths.distFolder));
 });
 
-gulp.task('watcher', ['less', 'sass', 'hint', 'watch' ] );
+gulp.task('watcher', ['less', 'sass', 'ls', 'coffee', 'hint', 'watch' ] );
 gulp.task('deploy', ['usemin'] );
