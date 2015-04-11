@@ -1,6 +1,7 @@
 {
 	"paths": {
 		"lessFiles" : "app/styles/less/*.less",
+		"indexFiles" : "app/*.html",
 		"scssFiles": "app/styles/scss/*.scss",
 		"livescriptFiles": "app/scripts/livescript/*.ls",
 		"coffeeFiles": "app/scripts/coffee/*.coffee",

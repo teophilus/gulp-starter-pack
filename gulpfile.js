@@ -72,7 +72,7 @@ gulp.task('watch', function() {
 
 // 'usemin' looks at 'html' files for the doc blocks to concatenate css & js, uglify js, adds hashes to js & css to bypass caches  
 gulp.task('usemin', function() {
-	gulp.src('app/*.html')
+	gulp.src(config.paths.indexFiles)
 		.pipe(usemin({
 			css: [
 				sourcemaps.init(),
