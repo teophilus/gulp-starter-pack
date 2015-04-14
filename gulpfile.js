@@ -68,7 +68,13 @@ gulp.task('watch', function() {
 	gulp.watch(config.paths.jsFiles, ['hint']);
 });
 
+// 'livereload' combines with 'watch' to create a live reload experience for rapid devolpement
+// @todo
+
 // Deploy Tasks 
+
+// 'uncss' removed unused css
+// @todo
 
 // 'usemin' looks at 'html' files for the doc blocks to concatenate css & js, uglify js, adds hashes to js & css to bypass caches  
 gulp.task('usemin', function() {
