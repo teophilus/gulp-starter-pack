@@ -1,0 +1,1 @@
+{"version":3,"sources":["sass.scss"],"names":[],"mappings":"AAEA;EACC,AAAS;;AAGV;EANa,AAOZ","file":"sass.css","sourcesContent":["$main-color: blue;\n\n.hide {\n\tdisplay: none;\n}\n\nh1 {\n\tcolor: $main-color;\n}\n\np {\n\t\n}"],"sourceRoot":"/source/"}
