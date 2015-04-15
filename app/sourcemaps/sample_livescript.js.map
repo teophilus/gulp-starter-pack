@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["sample_livescript.ls"],"sourcesContent":["<- $ 'h1' .on 'click'\nalert 'boom!'"],"file":"sample_livescript.js","sourceRoot":"/source/"}

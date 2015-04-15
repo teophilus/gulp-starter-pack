@@ -10,8 +10,7 @@ var gulp           = require('gulp'),
 	usemin         = require('gulp-usemin'),
 	minifyCss      = require('gulp-minify-css'),
 	rev            = require('gulp-rev'),
-	browserSync    = require('browser-sync'),
-	reload         = browserSync.reload;
+	browserSync    = require('browser-sync');
 
 // Paths 
 
@@ -52,6 +51,7 @@ gulp.task('sass', function() {
 // 'ls' compiles .ls to .js and generates sourcemaps
 gulp.task('ls', function() {
 	gulp.src(config.paths.livescriptFiles)
+		.pipe(sourcemaps.init())
 		.pipe(gulpLiveScript({bare: true})
 		.on('error', gutil.log))
 		.pipe(sourcemaps.write(config.paths.sourcemapOutput))		
@@ -62,6 +62,7 @@ gulp.task('ls', function() {
 // 'coffee' compiles .coffee to .js and generates sourcemaps
 gulp.task('coffee', function() {
 	gulp.src(config.paths.coffeeFiles)
+		.pipe(sourcemaps.init())
 		.pipe(coffee({bare: true})
 		.on('error', gutil.log))
 		.pipe(sourcemaps.write(config.paths.sourcemapOutput))    

@@ -9,3 +9,5 @@ Account = function(customer, cart) {
     };
   })(this));
 };
+
+//# sourceMappingURL=../sourcemaps/sample_coffee.js.map
