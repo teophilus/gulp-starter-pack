@@ -11,7 +11,8 @@ var gulp           = require('gulp'),
 	minifyCss      = require('gulp-minify-css'),
 	rev            = require('gulp-rev'),
 	del            = require('del'),
-	browserSync    = require('browser-sync');
+	browserSync    = require('browser-sync'),
+	htmlmin        = require('gulp-htmlmin');
 
 // Paths 
 
@@ -99,21 +100,16 @@ gulp.task('browser-sync', function() {
 // 'clean' clean dist directory before a new build
 gulp.task('clean', require('del').bind(null, ['config.paths.distFolder']));
 
-
 // 'move' move necessary files to dist
-// @todo
-
 gulp.task('move', function() {
-	gulp.src('app/foo.html', { read: false })
+	gulp.src(config.paths.indexFiles, { read: false })
 	.pipe(gulp.dest(config.paths.distFolder));
 });
-
-
 
 // 'uncss' removed unused css
 // @todo
 
-// 'usemin' looks at 'html' files for the doc blocks to concatenate css & js, uglify js, adds hashes to js & css to bypass caches  
+// 'usemin' looks at 'html' files for the doc blocks to concatenate css & js, uglify js, minifies html, adds hashes to js & css to bypass caches  
 gulp.task('usemin', function() {
 	gulp.src(config.paths.indexFiles)
 		.pipe(usemin({
@@ -131,10 +127,11 @@ gulp.task('usemin', function() {
 				sourcemaps.write(config.paths.distSourcemaps)
 			]
 		}))
+		.pipe(htmlmin({collapseWhitespace: true}))
 		.pipe(gulp.dest(config.paths.distFolder));
 });
 
 gulp.task('serve', ['browser-sync'] );
 gulp.task('watcher', ['less', 'sass', 'ls', 'coffee', 'hint', 'watch' ] );
 gulp.task('deploy', ['clean', 'move', 'usemin'] );
-gulp.task('foo', ['clean'] );
+gulp.task('foo', ['min-html'] );
