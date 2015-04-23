@@ -97,16 +97,16 @@ gulp.task('browser-sync', function() {
 // Deploy Tasks 
 
 // 'clean' clean dist directory before a new build
-// @todo
+gulp.task('clean', require('del').bind(null, ['config.paths.distFolder']));
 
-gulp.task('clean', require('del').bind(null, config.paths.distFolder));
 
 // 'move' move necessary files to dist
 // @todo
 
 gulp.task('move', function() {
-	gulp.src('app/*.html', { read: false })
+	gulp.src('app/foo.html', { read: false })
 	.pipe(gulp.dest(config.paths.distFolder));
+});
 
 
 
@@ -136,4 +136,5 @@ gulp.task('usemin', function() {
 
 gulp.task('serve', ['browser-sync'] );
 gulp.task('watcher', ['less', 'sass', 'ls', 'coffee', 'hint', 'watch' ] );
-gulp.task('deploy', ['usemin'] );
+gulp.task('deploy', ['clean', 'move', 'usemin'] );
+gulp.task('foo', ['clean'] );
