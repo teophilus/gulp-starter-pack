@@ -95,6 +95,9 @@ gulp.task('browser-sync', function() {
 
 // Deploy Tasks 
 
+// 'move' move necessary files to dist
+// @todo
+
 // 'uncss' removed unused css
 // @todo
 
