@@ -10,6 +10,7 @@ var gulp           = require('gulp'),
 	usemin         = require('gulp-usemin'),
 	minifyCss      = require('gulp-minify-css'),
 	rev            = require('gulp-rev'),
+	del            = require('del'),
 	browserSync    = require('browser-sync');
 
 // Paths 
@@ -95,8 +96,19 @@ gulp.task('browser-sync', function() {
 
 // Deploy Tasks 
 
+// 'clean' clean dist directory before a new build
+// @todo
+
+gulp.task('clean', require('del').bind(null, config.paths.distFolder));
+
 // 'move' move necessary files to dist
 // @todo
+
+gulp.task('move', function() {
+	gulp.src('app/*.html', { read: false })
+	.pipe(gulp.dest(config.paths.distFolder));
+
+
 
 // 'uncss' removed unused css
 // @todo
