@@ -12,6 +12,7 @@ var gulp           = require('gulp'),
 	rev            = require('gulp-rev'),
 	del            = require('del'),
 	browserSync    = require('browser-sync'),
+	mainBowerFiles = require('main-bower-files'),
 	htmlmin        = require('gulp-htmlmin');
 
 // Paths 
@@ -95,7 +96,14 @@ gulp.task('browser-sync', function() {
 });
 
 
-// Deploy Tasks 
+// Deploy Tasks
+
+// bower files
+
+gulp.task('bower-files', function() {
+    	gulp.src(mainBowerFiles())
+		.pipe(gulp.dest(config.paths.distFolder))
+});
 
 // 'clean' clean dist directory before a new build
 gulp.task('clean', require('del').bind(null, ['config.paths.distFolder']));
@@ -125,6 +133,9 @@ gulp.task('usemin', function() {
 				uglify(),
 				rev(),
 				sourcemaps.write(config.paths.distSourcemaps)
+			],
+			bowerJs: [
+
 			]
 		}))
 		.pipe(htmlmin({collapseWhitespace: true}))
@@ -134,4 +145,3 @@ gulp.task('usemin', function() {
 gulp.task('serve', ['browser-sync'] );
 gulp.task('watcher', ['less', 'sass', 'ls', 'coffee', 'hint', 'watch' ] );
 gulp.task('deploy', ['clean', 'move', 'usemin'] );
-gulp.task('foo', ['min-html'] );
